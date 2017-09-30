@@ -5,6 +5,10 @@
 </script>
 
 <style>
+  * {
+    font-family: Lucida Console, Courier, monospace;;
+  }
+
   .image-gallery {
     text-align: center;
   }
@@ -12,13 +16,10 @@
     float: left;
     width: 50%;
   }
-  .ads {
+  .gender-age {
     float: right;
     width: 50%;
   }
-  /*.content {
-    padding-left: 30px;
-  }*/
   .header {
     text-align: center;
   }
@@ -26,20 +27,71 @@
     width: 300px;
     height: 300px;
   }
+  .gender-age-image {
+    padding-top: 50px;
+    width: 150px;
+    height: 175px;
+  }
+  .code-container {
+    margin: 0 auto;
+  }
+  .code {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    word-break: break-all;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    font-family: Consolas, monaco, monospace;
+      font-size: 9px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 400;
+      line-height: 1.428571429;
+    border-radius: 4px;
+    width: 25%;
+  }
 </style>
+<body>
 <p>This is our logo</p>
 <div class="content">
   <div class="classify">
     <div class="image-gallery">
       <img id="classify-image" class="image" src="/Users/delinhoo/startup/darknet/predictions.png"></img>
     </div>
-    <p class="header">Classifying</p>
+    <p class="header">Live User Tracking</p>
   </div>
-  <div class="ads">
-    <div class="image-gallery">
-      <img class="image" src="https://www.lovebonito.com/modules/pssliderlayer/views/img/28sepNABmobile.png"></img>
+  <div class="gender-age">
+    <div>
+      <div class="classify">
+        <div class="image-gallery">
+          <img id="classify-image" class="gender-age-image" src="/Users/delinhoo/Desktop/female.jpg"></img>
+        </div>
+        <p class="header">Female, Age range: 25-32</p>
+      </div>
+      <div class="classify">
+        <div class="image-gallery">
+          <img id="classify-image" class="gender-age-image" src="/Users/delinhoo/Desktop/male.jpg"></img>
+        </div>
+        <p class="header">Male, Age range: 25-32</p>
+      </div>
     </div>
-    <p class="header">Ad</p>
+    <p class="header">Gender and age tracking</p>
+    <br style="clear:both;"/>
   </div>
   <br style="clear:both;"/>
 </div>
+<div class="code-container">
+  <pre class="code">
+  Female:
+  Guess @ 1 (25, 32), prob = 0.56
+  Guess @ 2 (48, 53), prob = 0.19
+  Guess @ 1 F, prob = 1.00
+  Male:
+  Guess @ 1 (25, 32), prob = 0.70
+  Guess @ 2 (15, 20), prob = 0.19
+  Guess @ 1 M, prob = 0.92</pre>
+</div>
+</body>
+
