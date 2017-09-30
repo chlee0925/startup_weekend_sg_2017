@@ -17,7 +17,9 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "vaadin-valo-theme": "vaadin/vaadin-valo-theme#^0.3.2",
     "vaadin-date-picker": "vaadin/vaadin-date-picker#^2.0.5",
-    "vaadin-board": "^1.0.1"
+    "vaadin-board": "^1.0.1",
+    "vaadin-grid": "^3.0.2",
+    "vaadin-charts": "^5.0.0"
   },
   "resolutions": {
     "polymer": "^2.0.0"
