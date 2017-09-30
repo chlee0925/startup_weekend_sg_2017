@@ -1,0 +1,45 @@
+{
+    "result": [
+        {
+            "id": "DA132",
+            "traffic": "1023",
+            "impressions": "423",
+            "positiveImps": "153",
+            "type": "smrt-6-sheet",
+            "location": "Bugis"
+        },
+        {
+            "id": "AG304",
+            "traffic": "921",
+            "impressions": "402",
+            "positiveImps": "132",
+            "type": "smrt-6-sheet",
+            "location": "Bugis"
+        },
+        {
+            "id": "GA100",
+            "traffic": "712",
+            "impressions": "391",
+            "positiveImps": "122",
+            "type": "smrt-4-sheet",
+            "location": "City Hall"
+        },
+        {
+            "id": "BE123",
+            "traffic": "793",
+            "impressions": "352",
+            "positiveImps": "102",
+            "type": "smrt-6-sheet",
+            "location": "Tanjong Pagar"
+        },
+        {
+            "id": "GD432",
+            "traffic": "813",
+            "impressions": "332",
+            "positiveImps": "112",
+            "type": "smrt-4-sheet",
+            "location": "Raffles Place"
+        }
+    ],
+    "size": 200
+}
