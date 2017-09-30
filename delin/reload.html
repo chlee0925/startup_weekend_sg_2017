@@ -1,0 +1,45 @@
+<script>
+  setInterval(() => {
+    document.getElementById("classify-image").src="/Users/delinhoo/startup/darknet/predictions.png?" + new Date().getTime();
+  }, 50);
+</script>
+
+<style>
+  .image-gallery {
+    text-align: center;
+  }
+  .classify {
+    float: left;
+    width: 50%;
+  }
+  .ads {
+    float: right;
+    width: 50%;
+  }
+  /*.content {
+    padding-left: 30px;
+  }*/
+  .header {
+    text-align: center;
+  }
+  .image {
+    width: 300px;
+    height: 300px;
+  }
+</style>
+<p>This is our logo</p>
+<div class="content">
+  <div class="classify">
+    <div class="image-gallery">
+      <img id="classify-image" class="image" src="/Users/delinhoo/startup/darknet/predictions.png"></img>
+    </div>
+    <p class="header">Classifying</p>
+  </div>
+  <div class="ads">
+    <div class="image-gallery">
+      <img class="image" src="https://www.lovebonito.com/modules/pssliderlayer/views/img/28sepNABmobile.png"></img>
+    </div>
+    <p class="header">Ad</p>
+  </div>
+  <br style="clear:both;"/>
+</div>
