@@ -44,6 +44,18 @@ First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
 Second, install [Bower](https://bower.io/) using [npm](https://www.npmjs.com)
 
     npm install -g bower
+    
+Third, download prediction models
+    
+    https://drive.google.com/open?id=0B8N1oYmGLVGWUmhrMm1HTE5zTzQ
+    https://drive.google.com/open?id=0B8N1oYmGLVGWX2E2ZC1TRDJhdWc
+    https://drive.google.com/file/d/0B2JbaJSrWLpza0FtQlc3ejhMTTA/view?usp=sharing
+
+Fourth, create the following directories for each of the prediction models:
+ 
+    age_gender_detection/weight/YOLO_tiny.ckpt
+    ref-data/age/22801
+    ref-data/gender/21936
 
 ##### Initialize project from template
 
