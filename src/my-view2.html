@@ -9,29 +9,224 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/vaadin-board/vaadin-board.html">
+<link rel="import" href="../bower_components/vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../bower_components/vaadin-charts/vaadin-charts.html">
 <link rel="import" href="shared-styles.html">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
 
 <dom-module id="my-view2">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         display: block;
-
+        margin: 0;
         padding: 10px;
+        font-family: "Open Sans", sans-serif;
       }
+
+      .grid-container {
+        font-size: 13px;
+      }
+
+      .details-container {
+        margin: 0px;
+      }
+
+      .tb-header {
+        font-size: 110%;
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+        table-layout: fixed;
+        border: 1px solid #d5d5d5;
+        border-collapse: collapse;
+        margin: 0px;
+        padding: 0px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      td {
+        text-align: center;
+        border: 1px solid #eaeaea;
+      }
+
+      td h1, td h2, td h3, td h4, td p {
+        margin: 5px;
+      }
+
+      .score-circle {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFF;
+        border-radius: 50%;
+        background: #3783C2;
+        font-size: 12px;
+      }
+
     </style>
 
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+<vaadin-board>
+
+    <vaadin-board-row style="height: 310px">
+
+    <div class="grid-container" board-cols="1">
+      <x-data-provider items="{{dataProvider}}"></x-data-provider>
+
+      <vaadin-grid aria-label="Selection using Active Item Example" id="grid" items="[[dataProvider]]" active-item="{{activeItem}}" size="200">
+
+        <vaadin-grid-column>
+          <template class="header"><span class="tb-header">Ad Space ID</span></template>
+          <template>[[item.id]]</template>
+        </vaadin-grid-column>
+
+        <vaadin-grid-column>
+          <template class="header"><span class="tb-header">Location</span></template>
+          <template>[[item.location]]</template>
+        </vaadin-grid-column>
+
+      </vaadin-grid>
     </div>
+
+    <div class="details-container card" hidden="[[!showCard]]" board-cols="2">
+      <table class="details-table">
+        <tr>
+          <td><h3>[[activeItem.traffic]]</h3><p>Traffic</p></td>
+          <td><h3>[[activeItem.impressions]]</h3><p>Impressions</p></td>
+        </tr>
+        <tr>
+          <td><h3>[[activeItem.positiveImps]]</h3><p>Positive impressions</p></td>
+          <td><div class="score-circle">[[activeItem.adSightScore]]</div><p>AdSight score</p></td>
+        </tr>
+      </table>
+    </div>
+
+  </vaadin-board-row>
+
+  
+  <!-- <vaadin-board-row style="height:300px;">
+      
+            <vaadin-line-chart id="basic-line">
+                <chart-title>Impression trends</chart-title>
+        
+                <x-axis>
+                  <categories>22/9, 23/9, 24/9, 25/9, 26/9, 27/0, 28/9, 29/9, 30/9, 1/10</categories>
+                </x-axis>
+        
+                <y-axis min="500">
+                  <chart-title align="high">Impressions</chart-title>
+                </y-axis>
+        
+                <tooltip formatter="function() {return '' + this.series.name + ' ' + this.x + ': ' + this.y;}"></tooltip>
+        
+                <plot-options>
+                  <line>
+                    <data-labels enabled="true"></data-labels>
+                  </line>
+                </plot-options>
+        
+                <legend layout="vertical" align="right" vertical-align="top" x="-10" y="100" border-width="0"></legend>
+        
+                <data-series name="Impressions">
+                  <data>3243, 3321, 2943, 2792, 2934, 2851, 3021, 3321, 3421, 1534</data>
+                </data-series>
+                <data-series name="Positive impressions">
+                  <data>1532, 1632, 1325, 1723, 1349, 1432, 1523, 1608, 1734, 642</data>
+                </data-series>
+              </vaadin-line-chart>
+            </vaadin-board-row> -->
+            
+
+  </vaadin-board>
+
   </template>
 
   <script>
     class MyView2 extends Polymer.Element {
       static get is() { return 'my-view2'; }
+
+      static get properties() {
+        return {
+          showCard: {
+            type: Boolean,
+            value: false,
+          },
+          activeItem: {
+            observer: '_activeItemChanged'
+          },
+          currentDetails: {
+            type: Object,
+            value: {},
+          },
+          dataProvider: Array,
+        };
+      }
+
+      ready() {
+        super.ready();
+        this.dataProvider = [
+        {
+            "id": "DA132",
+            "traffic": "1023",
+            "impressions": "423",
+            "positiveImps": "153",
+            "type": "smrt-6-sheet",
+            "location": "Bugis",
+            "adSightScore": "842"
+        },
+        {
+            "id": "AG304",
+            "traffic": "921",
+            "impressions": "402",
+            "positiveImps": "132",
+            "type": "smrt-6-sheet",
+            "location": "Bugis",
+            "adSightScore": "723"
+        },
+        {
+            "id": "GA100",
+            "traffic": "712",
+            "impressions": "391",
+            "positiveImps": "122",
+            "type": "smrt-4-sheet",
+            "location": "City Hall",
+            "adSightScore": "710"
+        },
+        {
+            "id": "BE123",
+            "traffic": "793",
+            "impressions": "352",
+            "positiveImps": "102",
+            "type": "smrt-6-sheet",
+            "location": "Tanjong Pagar",
+            "adSightScore": "702"
+        },
+        {
+            "id": "GD432",
+            "traffic": "813",
+            "impressions": "332",
+            "positiveImps": "112",
+            "type": "smrt-4-sheet",
+            "location": "Raffles Place",
+            "adSightScore": "650"
+        }
+    ];
+      }
+      _activeItemChanged(item) {
+        this.$.grid.selectedItems = item ? [item] : [];
+        if (item !== null) {
+          this.showCard = true;
+        } else {
+          this.showCard = false;
+        }
+        
+      }
     }
 
     window.customElements.define(MyView2.is, MyView2);

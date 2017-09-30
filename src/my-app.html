@@ -27,6 +27,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="lazy-import" href="my-view3.html">
 <link rel="lazy-import" href="my-view404.html">
 
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
 <dom-module id="my-app">
   <template>
     <style>
@@ -35,6 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-secondary-color: black;
 
         display: block;
+        font-family: "Open Sans", sans-serif;
       }
 
       app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -66,6 +69,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .drawer-list a.iron-selected {
         color: black;
         font-weight: bold;
+        text-shadow: 1px 2px 2px rgba(0,0,0,0.1);
       }
     </style>
 
@@ -82,8 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="view1" href="[[rootPath]]view1">Overview</a>
-          <a name="view2" href="[[rootPath]]view2">Search Campaigns</a>
-          <a name="view2" href="[[rootPath]]view2">Display Campaigns</a>
+          <a name="view2" href="[[rootPath]]view2">View Ad Spaces</a>
           <a name="view2" href="[[rootPath]]view2">Analytics</a>
           <a name="view2" href="[[rootPath]]view2">Reporting</a>
           <a name="view3" href="[[rootPath]]view3">Settings</a>

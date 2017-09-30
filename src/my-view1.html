@@ -49,6 +49,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 0 auto 0;
         text-align: center;
       }
+
+      .overview-num-elem h1, .overview-num-elem h2, .overview-num-elem h3, .overview-num-elem h4, .overview-num-elem p {
+        margin: 5px;
+      }
     </style>
 
     <vaadin-board>
@@ -59,32 +63,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="overview-num-elem">
           <div>
             <h1>1534</h1>
-            <h4>Today's impressions</h4>
+            <h3>Today's impressions</h3>
           </div>
         </div>
         <div class="overview-num-elem">
           <div>
             <h1>0.52%</h1>
-            <h4>Today's conversion rate</h4>
+            <h3>Today's conversion rate</h3>
           </div>
         </div>
         <div class="overview-num-elem">
           <div>
             <h1>17,243</h1>
-            <h4>This week's impressions</h4>
+            <h3>This week's impressions</h3>
           </div>
         </div>
         <div class="overview-num-elem">
           <div>
             <h1>43,934</h1>
-            <h4>This month's impressions</h4>
+            <h3>This month's impressions</h3>
           </div>
         </div>
       </vaadin-board-row>
 
       <!-- Impression chart -->
 
-      <vaadin-board-row style="min-height:450px; flex:2 1 40%;">
+      <vaadin-board-row style="min-height:430px; flex:2 1 40%;">
         <vaadin-line-chart id="basic-line">
           <chart-title>Impression trends</chart-title>
           <!-- <subtitle>Source: WorldClimate.com</subtitle> -->
@@ -119,10 +123,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Top performance ad space and demographic -->
       <vaadin-board-row style="min-height:300px; flex:1 1 30%;">
         <!-- Fetch an array of users to be shown in the grid -->
-        <iron-ajax auto url="../top-performance.json" handle-as="json" last-response="{{adSpace}}"></iron-ajax>
+        <!-- <iron-ajax auto url="../top-performance.json" handle-as="json" last-response="{{adSpace}}"></iron-ajax> -->
 
         <!-- Ad space top performance -->
-        <vaadin-grid aria-label="Ad performance table" items="[[adSpace.result]]" board-cols="2">
+        <!-- <vaadin-grid aria-label="Ad performance table" items="[[adSpace.result]]" board-cols="2">
 
           <vaadin-grid-column>
             <template class="header">Ad Space ID</template>
@@ -150,15 +154,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </vaadin-grid-column>
 
           <vaadin-grid-column>
-            <!-- width="150px" -->
             <template class="header">Location</template>
             <template>[[item.location]]</template>
           </vaadin-grid-column>
 
-        </vaadin-grid>
+        </vaadin-grid> -->
 
           <!-- Demographics - Age groups -->
-          <vaadin-pie-chart id="pie" style="margin-left: 12px;">
+          <vaadin-pie-chart id="pie">
             <chart-title>Age groups</chart-title>
             <tooltip point-format="{series.name}: <b>{point.percentage:.1f}%</b>">
             </tooltip>
@@ -176,39 +179,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </data-series>
           </vaadin-pie-chart>
 
-          <!-- Demographics - Gender -->
-          <!-- <vaadin-bar-chart id="bar-with-negative-stack">
-              <chart-title>Gender</chart-title>
-            
-              <x-axis reversed="false">
-                <categories>1
-                </categories>
-                <labels step="1"></labels>
-              </x-axis>
-              <x-axis opposite="true" reversed="false" linked-to="0">
-                <categories>1
-                </categories>
-                <labels step="1"></labels>
-              </x-axis>
-              <y-axis>
-                <chart-title text></chart-title>
-                <labels formatter="function () { return Math.abs(this.value) + '%'; }"></labels>
-              </y-axis>
-              <plot-options>
-                <series stacking="normal"></series>
-              </plot-options>
-              <tooltip formatter="function () { return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' + 'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0) + '%'; }"></tooltip>
-              <data-series name="Male">
-                <data>-45.3
-                </data>
-              </data-series>
-              <data-series name="Female">
-                <data>54.7
-                </data>
-              </data-series>
-            </vaadin-bar-chart> -->
-
-          <vaadin-pie-chart id="pie" style="margin-left: 12px">
+          <vaadin-pie-chart id="pie">
             <chart-title>Gender</chart-title>
             <tooltip point-format="{series.name}: <b>{point.percentage:.1f}%</b>">
             </tooltip>
