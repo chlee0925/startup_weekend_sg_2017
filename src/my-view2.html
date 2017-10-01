@@ -34,6 +34,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 0px;
       }
 
+      .details-container-header {
+        color: #2D8BD8;
+        text-align: center;
+      }
+
       .tb-header {
         font-size: 110%;
         font-weight: bold;
@@ -95,6 +100,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </div>
 
     <div class="details-container card" hidden="[[!showCard]]" board-cols="2">
+
+      <h1 class="details-container-header">Traffic Count</h1>
+
       <table class="details-table">
         <tr>
           <td><h3>[[activeItem.traffic]]</h3><p>Traffic</p></td>
