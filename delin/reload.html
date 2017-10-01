@@ -1,11 +1,50 @@
 <script>
   setInterval(() => {
-    document.getElementById("classify-image").src="/Users/delinhoo/startup/darknet/predictions.png?" + new Date().getTime();
-  }, 50);
+    document.getElementById("live-tracking").src="/Users/delinhoo/startup/darknet/predictions.png?" + new Date().getTime();
+  }, 100);
 </script>
 
 <style>
-  * {
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  img {
+    position: absolute;
+  }
+  .logo {
+    float: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: 187.63px;
+    opacity: 0.8;
+    z-index: 2;
+  }
+  .live-tracking {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .live {
+    position: relative;
+    padding-top: 10px;
+    padding-right: 10px;
+    float: right;
+    height: 25px;
+    width: 50px;
+    z-index: 2;
+    animation: blinker 1s linear infinite;
+  }
+
+  @keyframes blinker {
+  25% { opacity: 0; }
+  }
+  /** {
     font-family: Lucida Console, Courier, monospace;;
   }
 
@@ -44,18 +83,24 @@
     border: 1px solid #ccc;
     background-color: #f5f5f5;
     font-family: Consolas, monaco, monospace;
-      font-size: 9px;
-      font-style: normal;
-      font-variant: normal;
-      font-weight: 400;
-      line-height: 1.428571429;
+	  font-size: 9px;
+	  font-style: normal;
+	  font-variant: normal;
+	  font-weight: 400;
+	  line-height: 1.428571429;
     border-radius: 4px;
     width: 25%;
   }
+  .logo {
+    width: 150px;
+    height: 100px;
+  }*/
 </style>
 <body>
-<p>This is our logo</p>
-<div class="content">
+<img class="logo" src="/Users/delinhoo/Desktop/logo.png"></img>
+<img class="live" src="/Users/delinhoo/Desktop/live.png"></img>
+<img id="live-tracking" class="live-tracking" src="/Users/delinhoo/startup/darknet/predictions.png"></img>
+<!-- <div class="content">
   <div class="classify">
     <div class="image-gallery">
       <img id="classify-image" class="image" src="/Users/delinhoo/startup/darknet/predictions.png"></img>
@@ -92,6 +137,5 @@
   Guess @ 1 (25, 32), prob = 0.70
   Guess @ 2 (15, 20), prob = 0.19
   Guess @ 1 M, prob = 0.92</pre>
-</div>
+</div> -->
 </body>
-
